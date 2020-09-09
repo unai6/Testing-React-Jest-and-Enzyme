@@ -1,9 +1,9 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme'
-import {newEnzymeAdapter} from '../Tests/testUtils';
+import {shallow} from 'enzyme'
+import {enzymeAdapter} from '../Tests/testUtils';
 import Counter from '../Components/Counter';
 
-Enzyme.configure(newEnzymeAdapter);
+enzymeAdapter;
 
 
 const setup = (props, state = null) => {

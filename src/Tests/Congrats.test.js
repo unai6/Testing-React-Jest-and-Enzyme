@@ -1,11 +1,11 @@
 import React from 'react';
-import Enzyme , { shallow } from 'enzyme';
-import {newEnzymeAdapter} from '../Tests/testUtils';
+import { shallow } from 'enzyme';
+import {enzymeAdapter} from '../Tests/testUtils';
 import Congrats from '../Components/Congrats';
 import {findByTestAttr} from '../Tests/testUtils';
-import checkPropTypes from 'check-prop-types';
+import {checkProps} from '../Tests/testUtils';
 
-Enzyme.configure(newEnzymeAdapter);
+enzymeAdapter
 
 const setup = (props = {}) => {
     return shallow(<Congrats {...props}/>)
@@ -30,9 +30,7 @@ test('renders npo empty congrats message when `success` prop is `true`', () => {
     expect(message.text().length).not.toBe(0);    
 });
 
-test('does now throw a warning with expeceted props', () => {
+test('does now throw a warning with expected props', () => {
     const expectedProps = setup({success:false});
-    const propError = checkPropTypes(Congrats.propTypes, expectedProps, 'prop', Congrats.name);
-    
-
-})
+    checkProps(Congrats, expectedProps);
+});
