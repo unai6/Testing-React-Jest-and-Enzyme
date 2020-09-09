@@ -1,10 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme'
-import {enzymeAdapter} from '../Tests/testUtils';
 import Counter from '../Components/Counter';
-
-enzymeAdapter;
-
 
 const setup = (props, state = null) => {
 const wrapper = shallow(<Counter {...props}/>);

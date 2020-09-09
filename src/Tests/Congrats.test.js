@@ -1,18 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {enzymeAdapter} from '../Tests/testUtils';
 import Congrats from '../Components/Congrats';
 import {findByTestAttr} from '../Tests/testUtils';
 import {checkProps} from '../Tests/testUtils';
 
-enzymeAdapter
+const defaultProps = {success:false};
 
 const setup = (props = {}) => {
-    return shallow(<Congrats {...props}/>)
+    const setUpProps = {...defaultProps, ...props}
+    return shallow(<Congrats {...setUpProps}/>)
 }
 
 test('renders without crashing', () => {
-    const wrapper = setup();
+    const wrapper = setup({success:false});
     const congratsComponent = findByTestAttr(wrapper, 'component-congrats');
     expect(congratsComponent.length).toBe(1);
 });
